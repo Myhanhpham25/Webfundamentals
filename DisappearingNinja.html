@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Disappearing Ninja</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		
+			$(document).ready(function(){
+
+				$('img').click(function(){
+					$(this).hide();
+				});
+
+			$('button').click(function(){
+				$('#images img').show();
+			});
+		});
+
+		</script>
+	</head>
+	<body>
+		<h1>jQuery- assignment 1</h1>
+		<div id="images">
+			<img src="PandaNinja.png" alt="image1">
+			<img src="PandaNinja.png" alt="image2">
+			<img src="PandaNinja.png" alt="image3">
+			<img src="PandaNinja.png" alt="image4">
+			<img src="PandaNinja.png" alt="image5">
+			<img src="PandaNinja.png" alt="image6">
+			<img src="PandaNinja.png" alt="image7">
+			<img src="PandaNinja.png" alt="image8">
+		</div>
+
+		<button id="restore">Restore!</button>
+	</body>
+</html>

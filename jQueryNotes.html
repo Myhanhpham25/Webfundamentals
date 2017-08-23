@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery demo!</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<script>
+	 		$(document).ready(function(){
+
+	 			var dojo = ['dojo', 'mountain view', 'bootcamp'];
+
+	 			console.log(dojo);
+
+	 			$('a').click(function(){
+	 				alert('you are now learing the page!');
+	 			})
+
+	 			// // effects methods they toggle the visibiltiy property of items 
+
+	 			// $('p').hide();
+
+	 			$('#hide').click(function(){
+	 				$('p').hide();
+	 			})
+
+	 			$('#show').click(function() {
+	 				$('p').show();	 				
+	 			})
+
+	 			//manipulation methods add/change either text or html to your document
+
+	 			$('h3').hover(function(){
+	 				$('h2').text('go see the Space Needle!');
+
+	 			});
+
+	 			$('append').click(function(){
+	 				$('.result').append('<h4>.append adds HTML! </4>');
+	 			});
+
+	 			//css method 
+
+	 			$('button').click(function(){
+	 				$('button').css('background-color', 'yellow');
+	 			});
+
+	 			$('button').click(function(){
+	 			var myText = $('#myParagraph').text();
+	 			alert(myText); 
+
+	 		});  	
+	     
+	    })
+
+		</script>
+	</head>
+	<body>
+		<div class = 'result'></div>
+		<p> This is a paragrah!! </p>
+
+		<p>This is also a paragraph!</p>
+		<button id='hide'> This will hide all paragraphs!</button>
+		<button id='show'> Click to show all paragraphs</button>
+		<a id='mylink' href ="http://www.google.com">go to Google!</a>
+		<h3> Mountain View, California </h3>
+		<h2> Seattle, Washington</h2>
+		<button class='append'> Click to see .append work!</button>
+		<div class= 'result'></div>
+
+
+	    <p id='myParagraph'> This is my paragraph! </p>
+	    <button> Click me to change the paragraph! </button>
+
+	</body>
+</html>

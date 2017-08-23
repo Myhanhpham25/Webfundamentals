@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Functions</title>
+		<style>
+	
+			.red {
+				color:red;
+			}
+
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+				$('#click').click(function(){
+					console.log("click");
+				});
+
+				$('#hide button').click(function(){
+					$('#hide p').hide();
+				});
+
+				$('#show button').click(function(){
+					$('#hide p').show();
+				});
+
+				$('#toggle button').click(function(){
+					$('#toggle p').toggle();
+				});
+
+				//hide it before we can show it
+				$('#slideDown button').click(function(){
+					$('#hide p').slideDown(); 
+				});
+
+				$('#slideUp button').click(function(){
+					$('#slideUp p').slideUp();
+				});
+
+				$('#slideToggle button').click(function(){
+					$('#slideToggle p').slideToggle();
+				});
+
+				//must hide content before showing
+				$('#fadeIn button').click(function(){ 
+					$('#slideUp p, #hide p').fadeIn();
+				});
+
+				$('#fadeOut button').click(function(){
+					$('#fadeOut p').fadeOut();
+				});
+
+				//has to be a string, CSS to style it red
+				$('#addClass button').click(function(){
+					$('#addClass p').addClass('red'); 
+				});
+
+				$('#before button').click(function(){
+					$('#before button').before('Hello World');
+				});
+
+				$('#after button').click(function(){
+					$('#after button').after('Hello World');
+				});
+
+				//can alter the HTML content of hte selected item. 
+				//add market up the element in the questions.
+				//Use to add content to the end of the element.
+
+				$('#append button').click(function(){
+					$('#append').append('<p>append</p>');
+				});
+
+				//.html() will insert new HTML markup, meaning new HTML tags. 
+				//Use .html() if you want to put an ordered list inside of the paragraph.
+				//use to replace content.
+
+				$('#html button').click(function(){ 
+					var htmlStr = $('#html p').html(); 
+					$('#attr p').html(htmlStr);
+				});
+
+				$('#attr button').click(function(){
+					var color = $('#attr h1').attr('style');
+					$('#attr p').text(color);
+					
+				});
+
+				$('#val button').click(function(){
+					var value = $ ('.input').val();
+					$ ('#val p').html(value);
+
+				});
+
+				//.text is used to get or set the text value of an HTML element. Can be used to change the text of a paragraph.
+
+				$('#text button').click(function(){ 
+					$('#text p').text('Almost done!');
+				});
+
+				//generator data that's not visible and set the data when it is called. 
+				$('#data button').click(function(){ 
+					$('#data p').data('key', {name:'bob'});
+					$('#data p').text($('#data p').data('key').name);
+
+				});
+
+				//$(this) selectors hides the current element. Short curt than having to repeat code/.
+				
+				$('img').click(function(){
+                $(this).hide();
+            });
+			
+		});
+		</script>
+	</head>
+	<body>
+		<div id='click'>
+			<button>Click Me!</button>
+			<h1>Click me!</h1>
+			<p>Click the button to click the button.</p>
+		</div>
+		<hr>
+		<div id='hide'>
+			<button>Hide me!</button>
+			<h1>Hide Me</h1>
+			<p>Click the button to hide the paragraph.</p>
+		</div>
+		<hr>
+		<div id='show'>
+			<button>Show me!</button>
+			<h1>Show Me</h1>
+			<p>Click the button to show the hidden paragraph earlier!</p>
+		</div>
+		<hr>
+		<div id='toggle'>
+			<button>Toggle Me!</button>
+			<h1>Toggle Me</h1>
+			<p>Click the button to toggle this paragraph.</p>
+		</div>
+		<hr>
+		<div id='slideDown'>
+			<button>SlideDown!</button>
+			<h1>Slide Down!</h1>
+			<p>Click the button to slide down the hidden paragraph.</p>
+		</div>
+		<hr>
+		<div id='slideUp'>
+			<button>SlideUp me!</button>
+			<h1>SlideUp</h1>
+			<p>Click the button to slide up.</p>
+		</div>
+		<hr>
+		<div id='slideToggle'>
+			<button>slideToggle me!</button>
+			<h1>slideToggle</h1>
+			<p>Click the button to slide toggle.</p>
+		</div>
+		<hr>
+		<div id='fadeIn'>
+			<button>fadein me!</button>
+			<h1>fadeIn</h1>
+			<p>Click the button to fadein.</p>
+		</div>
+		<hr>
+		<div id='fadeOut'>
+			<button>fadeOut me!</button>
+			<h1>fadeOut</h1>
+			<p>Click the button to fadeout.</p>
+		</div>
+		<hr>
+		<div id='addClass'>
+			<button>Class me!</button>
+			<h1>addClass</h1>
+			<p>Click the button to class.</p>
+		</div>
+		<hr>
+		<div id='before'>
+			<button>Before me!</button>
+			<h1>Before Me!</h1>
+			<p>Click the button to make text appear before the button</p>
+		</div>
+		<hr>
+		<div id='after'>
+			<button>After me!</button>
+			<h1>After Me!</h1>
+			<p>Click the button to make text appear after the button</p>
+		</div>
+		<hr>
+		<div id='append'>
+			<button>Append me!</button>
+			<h1>Append Me!</h1>
+			<p>Click the button to append</p>
+		</div>
+		<hr>
+		<div id='html'>
+			<button>HTML me!</button>
+			<h1>HTML me</h1>
+			<p>Click the button to html</p>
+		</div>
+		<hr>
+		<div id='attr'>
+			<button>attr me!</button>
+			<h1 style='color:blue;'>attr me!</h1>
+			<p>Click the button to attr this paragraph!</p>
+		</div>
+		<hr>
+		<div id='val'>
+			<button>val me!</button>
+			<h1>Val Me!!!</h1>
+			<input class='input' type="text" name="text" value="text area">
+			<p>Click the button to val me!</p>
+		</div>
+		<hr>
+		<div id='text'>
+			<button>text me!</button>
+			<h1>Text Me! </h1>
+			<p>Click the button to add text.</p>
+		</div>
+		<hr>
+		<div id='data'>
+			<button>data me!</button>
+			<h1>Data Me! </h1>
+			<p></p>
+		</div>
+		<hr>
+
+<!-- 			//$(this) selectors hides the current element
+ -->
+		<img src="image1.jpg" id="image1" />
+    	<img src="image2.jpg" id="image2" />
+   		<img src="image3.jpg" id="image3" />
+    	<img src="image4.jpg" id="image4" />
+    	<img src="image5.jpg" id="image5" />
+
+
+	</body>
+</html>
