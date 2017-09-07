@@ -1,0 +1,67 @@
+<!-- 
+Three relationships: - allow us to specify which relatives are being targetted by taking the input of the selector. 
+
+.children(); -a way of targeting any items contained within the selected item. 
+.parent();  - similar to .children() selector. 
+.siblings();
+
+chaining allow to specify which relationship we want to target.  -->
+
+event.stopPropagation() functions prevents the .click() method from propagation from the child element to the parent element. This function allows us to make the .click() event exclusively for teh small boxes and not the big boxes. 
+
+
+			$(document).ready(function(){
+             $('#large_box').click(function(){
+                alert('you clicked the big box!');  
+         //comment this out when you have figured out what event.stopPropagation is used for
+             })
+             $('.side_box').click(function(event){
+                event.stopPropagation();
+             })
+             $('.middle_box').click(function(event){
+                event.stopPropagation();
+             })
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Traversing</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+					// $('h3, p').click(function(){
+					// $(this).parent().append('<h2>HOWDY CODING DOJO!</h2>');
+					// $(this).siblings().hide();
+
+				$('button').click(function(){
+					$(this).siblings().children().children().text('The Cousin-Friends!');
+				
+				});	
+
+			// $('#myDiv').children().css('background-color', 'green'); // grab all children in #myDiv and change them to green 
+			// $('#myDiv').children('h3').css('background-color', 'green'); //grab children of mydiv with children h3
+
+			})
+			
+
+		</script>
+	</head>
+	<body>
+		<div>
+			<button>Who are we? Click here!!!</button>
+			<ul>
+				<li><h3>Hanh Pham</h3></li>
+				<li><h3>Lan Bui</h3></li>
+				<li><h3>Wee Le</h3></li>
+				<li><h3>Kathy Pham</h3></li>
+			</ul>
+		</div>
+		<!-- <div id='myDiv'>
+			<p>Here is a paragraph. It is a beautiful paragraph</p>
+			<h3>Michael Choi</h3>
+			<h3>John Supsupin</h3>
+			<h3>Try Villanfane</h3>
+		</div> -->
+	</body>
+</html>

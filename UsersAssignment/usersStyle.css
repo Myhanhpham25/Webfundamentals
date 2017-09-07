@@ -1,0 +1,41 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: arial;
+}
+
+#container {
+	margin: 10px;
+}
+
+table {
+	display: inline-block;
+	border: solid;
+	border-spacing: 5px;
+	margin-bottom: 50px;
+
+}
+
+table tr td {
+
+	padding-right: 30px;
+}
+
+h1 {
+
+	border-bottom: solid;
+	margin-bottom: 25px;
+
+}
+
+#submit {
+
+	padding: 5px;
+	border-radius: 5px;
+	margin-top: 30px;
+	margin-left: 150px;
+
+}
+
+
+

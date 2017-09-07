@@ -1,0 +1,57 @@
+<!-- .submit() command - to either submit an actual HTML form or use it as a event handler. 
+1.listener 
+2. use to hard submit
+
+				$('form').submit(function(){alert('you submitted me!');}); // when form is sumitted an alert popup with a mesasge. 
+
+				$('h4').click(function(){ //.submit() is a method. when any h4 tag gets clicked, submit any form. 
+					$('form').submit();
+				});
+
+Return false - input within the function part - a way to not allow that form to submit if you don't want it to. in case someone forgot to complete the form, the return false code will not allow the user to submit the form. return false doesn't allow the page to refresh. 
+
+				$('form').submit(function(){
+					return false;
+				});
+
+.serialize() function that encodes a set of form elements into a computer-friendly array. .serialize() transforms data that the user inputs into a format that can be easily passed to a back-end process and used by a non-human entity. It is used for cleanning up data before it is passed to either an AJAX or an API. 
+
+ie. [first_name:John, last_name:Mike , email:john@gmail.com]
+ -->
+
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>jQuery for Forms</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+
+			$(document).ready(function(){
+				$('form').submit(function(){
+					// console.log($(this).serialzing()); // encodes to a string for computers to transfer information. 
+					{alert ('You are submitting me!')};
+					return false 
+				});
+
+				$('.btn').click(function(){
+					$('form').submit();
+				})
+
+			});
+		</script>
+	</head>
+	<body>
+		<form action='process.php' method='post'>
+		First Name <input type='text' name='first_name'>
+		Last Name <input type='text' name='last_name'>
+		Email <input type='text' name='email'>
+		<input type='submit' value='submit!''>
+		</form>
+
+		<button class='btn'>Click me to use the .submit() differently! </button>
+
+
+	</body>
+</html>
+
+

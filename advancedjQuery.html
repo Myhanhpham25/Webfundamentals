@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+     {
+
+     color:pink;
+
+     }
+
+    </style>
+    <title>Advanced jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+      <!-- ///// Using $(document).on(fuction(){});  -->
+
+    <!--   <script>
+        $(document).ready(function(){
+        $('button').click(function(){
+        $('div').append('<h3>I am a dynamically generated h3 </h3>');
+
+        });
+
+          // $(document).on(event listener, selector, function(){ what we want it to run. Just the stuff we want to attach }); \\
+
+        $('div.a').on('mouseover', 'h3', function(){ 
+        $(this).css('color', 'pink');
+        });     
+        
+      });
+    </script>
+
+  </head>
+  <body>
+      <button>Click me</button>
+
+      <div class="a">
+       <h3>I am old content</h3>
+      </div>
+
+      <div class="b">
+       <h3>I am old content</h3>
+      </div>
+    </body> -->
+
+
+<!-- // ========== Defining callbacks  -->
+
+<!-- // $('h3').click(function(){     //callbacks , this ia bad practice b/c you will need to repeat yourself if you want the to call the callback function. So to not repeat created the function above the $(document).ready function. 
+  // alert('You clicked an H3!'); //callbacks
+ -->
+    <!-- <script>
+        $(document).ready( function() {
+            $('h3').click( function() {
+                alert('You clicked an H3!');
+            });
+
+            $('button').click( function() {
+                $('div').append('<h3>I am a dynamically generated H3</h3>');
+                $('h3').click( function() {
+                    alert('You clicked an H3. Help!!');    
+                });
+            });
+        });
+
+    </script>
+  </head>
+
+  <body>
+      <div>
+          <button>Click me to add a new H3 tag!</button>
+          <h3>Click me to see a message!</h3>
+      </div>
+  </body>
+</html>
+ -->
+
+  <!-- ==================== proper way to write callbacks jQuery ======================= -->
+
+   <script>
+      function attach_h3_handlers() {
+          $('h3').click( function() { alert('You clicked an H3!');  });
+        }
+      
+
+      $(document).ready(function() {
+          attach_h3_handlers();
+
+
+         $('button').click( function() {
+              $('div').append('<h3>I am a dynamically generated H3</h3>');
+              attach_h3_handlers();         
+        
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <button>Click me to add a new H3 tag!</button>
+      <h3>Click me to see a message!</h3>
+     </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         

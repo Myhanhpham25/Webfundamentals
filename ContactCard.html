@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Contact Card</title>
+		<style type="text/css">
+			form {
+				font-size: 20px;
+				margin: 10px;
+			}	
+
+			h2 {
+
+				background-color: pink;
+				width: 300px;
+			}	
+
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function(){
+
+				$('#submit').click(function(){
+					$('form').submit();
+					$('#contactList').append('<h2>'+ $('input[name="first_name"]').val() + $('input[name="last_name"]').val() + '<br>' + 'Click for Description' + '</h2>' );
+						return false
+				});
+
+					
+			
+			$(document).on('click', 'h2', function(){
+				var descrip = $('#descript').val();
+				$(this).html(descrip);
+
+				}); 
+
+			});
+
+		</script>
+	</head>
+	<body>
+		<div id='container'>
+				<form action="process.php" method="post">
+				<label>First Name:</label>
+				<input type="text" name="first_name"><br>
+				<label>Last Name:</label>
+				<input type="text" name="last_name"><br>
+				<label>Description</label>
+				<input id="descript" type="text" name="description"><br>
+				<input type="submit" id="submit" value="Add User">	
+			</form>			
+		</div>
+		<div id='contactList'>
+			<p>Contact Card</p>			
+		</div>
+	</body>
+</html>

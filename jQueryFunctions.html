@@ -111,7 +111,15 @@
 				
 				$('img').click(function(){
                 $(this).hide();
-            });
+            	});
+
+            	//to use hover you must have an on and off function. 
+
+				$('#hover p').hover(function(){  
+				$(this).hide('slow');
+				}, function(){						
+				$(this).show('slow');
+			});
 			
 		});
 		</script>
@@ -224,6 +232,12 @@
 			<button>data me!</button>
 			<h1>Data Me! </h1>
 			<p></p>
+		</div>
+		<hr>
+		<div id='hover'>
+			<button>Hover Me! !</button>
+			<h1>Hover over paragraph!  </h1>
+			<p>This is what happen when you hover me! It hoverOut and hoverIn</p>
 		</div>
 		<hr>
 

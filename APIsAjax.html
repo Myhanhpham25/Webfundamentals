@@ -1,0 +1,133 @@
+API (Application Programming Interface)
+    -defines as a set of rules in which you can interact with a particular applicaitons. 
+    - Speed (developer) 
+    -Cross development (manager/developers) - allows expert/developers from different languages to work together efficiently. 
+    -Wider reach of the audience ( marketers)- APIs allow marketers to market their own product/services to a wider audience of consumers and developers. 
+
+AJAX 
+
+Loading pages or certain items without having to refresh the entire page and allows the website to show cools features. 
+
+allows you to request data from other sources 
+
+
+JSON (JavaScript Object Notation) is one of many ways to representing data. 
+$.get function is a way in getting information from another URL wihtout having to reload your own page. 
+
+$.get(URL), function (res){}, type of data you expect or the format - JSON  //default is JSON is the data 
+
+3 passing arguments 
+    1. URL we want to load the information.
+    2. function we want to run after the information was successfully loaded. 
+        ie. function(res){console.log(res)}),
+            -$.get will automatically pass an argument to this function that holds the information from the URL we requested. 
+            - you can access this argument by having our own function takes an argument. (ie. res)
+            -you can name this argument anything you want, you can name it 'data' for example. 
+    3. The type of information or data  we are expecting back which in our case is json. 
+
+
+Traversing JSON
+
+Allowings flexiblity when selecting attributes. Using a For loop will create flexibities when showing specific details. 
+
+Building HTML 
+
+to be able to display JSON on the website we will need to use HTML. include data from JSPN object into our HTML so that the users of our website can see the information. 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gotta Catch'em All</title>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.get("http://pokeapi.co/api/v1/pokemon/1/", function(res) {
+                    var html_str ="";
+                    html_str += "<4>Types</4>";
+                    html_str += "<ul>";
+                    for (var i = 0; i < res.types.length; i++){
+                        html_str += "<li>" + res.types[i].name + "</li>";
+                    }
+
+                    html_st += "<ul>";
+                    $("#bulbasaur">).html(html_str);
+                     }, "json");
+            })
+        </script>
+    </head>
+    <body>
+        <div id="bulbasaur">
+        </div>
+    </body>
+</html>
+
+
+
+We are passing in three arguments to the $.get function. 
+
+1. The URL that we want to load information from (i.e. "http://pokeapi.co/api/v1/pokemon/1/")
+2. Function we want to run after information was successfully loaded 
+    - We want to build a string that looks like "<h4>Types</h4><ul><li>poison</li><li>grass</li></ul>" and inserting its content inside the div with the id of bulbasaur. The browser will read the string and render it as HTML when we call $("#bulbasaur").html(html_str)
+3. The type of information we are expecting back which in our case is json.
+
+
+
+<!DOCTYPE html> //lecture in class 
+<html>
+    <head>
+        <title> API Demo! </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){ 
+                $('form').submit(function(){
+                    console.log ($("#myNum").val())
+
+
+                $.get("http://pokeapi.co/api/v1/pokemon/ " + $("#myNum").val() + " /", function(res) { 
+                //res is standard for "result"
+                console.log(res) //return the data requested.
+            
+                }, "json");
+
+                return false; //stop the default from refreshing the page or going to another page
+
+            })
+
+            })
+
+
+        </script>
+
+    </head>
+    <body>
+        <form action="">
+            <input id= "myNum" type="number">
+            <input type ="submit" val="GET!"> // get the particular item 
+        </form>
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
